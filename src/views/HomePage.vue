@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import HelloWorld from "../components/HelloWorld.vue";
+import productsWrapper from "@/components/LAYOUT/productsWrapper.vue";
 </script>
 
 <template>
   <div>
-    <HelloWorld msg="You did it!" />
-    <h1></h1>
+    <the-nav></the-nav>
+    <products-wrapper></products-wrapper>
   </div>
 </template>
 

@@ -1,0 +1,44 @@
+[
+    {
+        "id":0,
+        "name":"Huawei",
+        "price":6500,
+        "imageUrl":"/device/huawei_telefon.png",
+        "stock":14
+    },
+    {
+        "id":1,
+        "name":"Iphone",
+        "price":16500,
+        "imageUrl":"/device/iphone_telefon.png",
+        "stock":5
+    },
+    {
+        "id":2,
+        "name":"Irobot Vacuum Mop",
+        "price":4800,
+        "imageUrl":"/device/irobot_supurge.png",
+        "stock":5
+    },
+    {
+        "id":3,
+        "name":"Lenovo Tablet",
+        "price":9340,
+        "imageUrl":"/device/lenovo_tablet.png",
+        "stock":1
+    },
+    {
+        "id":4,
+        "name":"Samsung Tablet",
+        "price":12500,
+        "imageUrl":"/device/samsung_tablet.png",
+        "stock":12
+    },
+    {
+        "id":5,
+        "name":"Xiaomi Vacuum Mop",
+        "price":5500,
+        "imageUrl":"/device/xiaomi_supurge.png",
+        "stock":3
+    }
+]
