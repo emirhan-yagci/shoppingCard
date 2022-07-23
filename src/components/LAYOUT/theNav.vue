@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { useProductStore } from "@/stores/product";
 import basketPopup from "../basketPopup.vue";
-
+import { useProductStore } from "../../stores/product.ts";
 const useProduct = useProductStore();
 
 const basketCount = computed<number>(() => {
+  console.log(useProduct.getBasketCount);
   return useProduct.getBasketCount;
 });
 
@@ -31,8 +31,12 @@ function toggleBasketPopup() {
       v-if="popupOpen"
     ></basket-popup>
     <div class="text-3xl">Vue + Typescript</div>
-    <div @click="toggleBasketPopup" class="cursor-pointer relative">
-      <img src="@/assets/basket.png" alt="" class="w-[30px]" />
+    <div
+      @click="toggleBasketPopup"
+      id="basketIcon"
+      class="cursor-pointer relative"
+    >
+      <img src="../../assets/basket.png" alt="" class="w-[30px]" />
       <!--basket count -->
       <div
         class="absolute -top-1 -right-2 px-2 text-xs rounded-full bg-orange-500 t"

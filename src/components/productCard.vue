@@ -1,10 +1,23 @@
 <script setup lang="ts">
 import { defineProps, defineEmits, ref } from "vue";
-import type { productType } from "@/types/product";
+import type { productType } from "../types/product";
+import { json } from "stream/consumers";
 
-const props = defineProps<{
+type Props = {
   product: productType;
-}>();
+};
+const props = withDefaults(defineProps<Props>(), {
+  product: () => {
+    return {
+      id: 0,
+      name: "Huawei",
+      price: 6500,
+      imageUrl: "/device/huawei_telefon.png",
+      stock: 14,
+    };
+  },
+});
+
 
 const emit = defineEmits<{
   (e: "addToCard", order: { product: productType; amount: number }): void;
@@ -33,16 +46,18 @@ function sourAmount(): void {
 }
 </script>
 <template>
-  <div class="w-[250px] shadow-2xl rounded-xl p-5 mb-5">
-    <img :src="product.imageUrl" class="" alt="" />
+  <div class="w-[250px] shadow-2xl rounded-xl p-5 mb-5 deviceCards" :data-stock="product.stock">
+    <img :src="product.imageUrl" alt="" />
     <div class="text-center space-y-4">
       <div>
         <div>{{ product.name }}</div>
-        <div>{{product.price}} TL</div>
-        <div>Stock <span class="font-bold">{{product.stock}}</span></div>
+        <div>{{ product.price }} TL</div>
+        <div>
+          Stock <span class="font-bold" id="deviceStock">{{ product.stock }}</span>
+        </div>
       </div>
       <div class="flex justify-around items-center">
-        <button @click="sourAmount" class="changeCountBtn">-</button>
+        <button @click="sourAmount" class="changeCountBtn" id="sourAmount">-</button>
         <input
           class="w-10 rounded-md border-2 border-gray-700"
           type="number"
@@ -50,11 +65,12 @@ function sourAmount(): void {
           :value="productAmount"
           readonly
         />
-        <button @click="plusAmount" class="changeCountBtn">+</button>
+        <button @click="plusAmount" class="changeCountBtn plusAmount">+</button>
       </div>
       <button
+        
         @click="addToCard"
-        class="bg-green-500 text-white rounded-lg px-4 py-2"
+        class="bg-green-500 text-white rounded-lg px-4 py-2 addToCardBtn"
       >
         Add To Card
       </button>

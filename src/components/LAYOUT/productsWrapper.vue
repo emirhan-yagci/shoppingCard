@@ -2,7 +2,7 @@
 import BaseContainer from "../baseContainer.vue";
 import productCard from "../productCard.vue";
 
-import { useProductStore } from "@/stores/product";
+import { useProductStore } from "../../stores/product";
 
 const useProduct = useProductStore();
 const devices = useProduct.devices;
@@ -20,6 +20,7 @@ function addCard(orderData) {
         v-for="device in devices"
         :key="device.id"
         :product="device"
+      
       ></product-card>
     </div>
   </base-container>

@@ -11,7 +11,7 @@
         "name":"Iphone",
         "price":16500,
         "imageUrl":"/device/iphone_telefon.png",
-        "stock":5
+        "stock":0
     },
     {
         "id":2,
@@ -25,7 +25,7 @@
         "name":"Lenovo Tablet",
         "price":9340,
         "imageUrl":"/device/lenovo_tablet.png",
-        "stock":1
+        "stock":0
     },
     {
         "id":4,

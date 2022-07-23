@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import productsWrapper from "@/components/LAYOUT/productsWrapper.vue";
+import productsWrapper from "../components/LAYOUT/productsWrapper.vue";
+import theNav from "../components/LAYOUT/theNav.vue";
 </script>
 
 <template>

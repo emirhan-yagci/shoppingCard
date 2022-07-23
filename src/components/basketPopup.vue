@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useProductStore } from "@/stores/product";
+import { useProductStore } from "../stores/product.ts";
 
-const emit = defineEmits(["closePopup"])
 
 const useProduct = useProductStore();
+const emit = defineEmits(["closePopup"])
+
 
 const userBasket = useProduct.userBasket;
 
@@ -30,13 +31,13 @@ function buyBasket(){
   >
     <div
       @click="$emit('closePopup')"
-      class="absolute top-0 left-0 w-full h-full bg-slate-900/40"
+      class="absolute top-0 left-0 w-full h-full bg-slate-900/40" id="closePopup"
     ></div>
     <div
       class="absolute w-[450px] max-h-[90%] shadow-2xl rounded-lg space-y-3 bg-white text-black p-5 overflow-y-scroll"
     >
       <h2 class="text-orange-400 font-semibold text-2xl">Your Shopping Cart</h2>
-      <ul class="space-y-4">
+      <ul class="space-y-4" id="basketItemContainer">
         <li
           v-for="product in userBasket"
           :key="product.productDetails.id"
@@ -61,8 +62,8 @@ function buyBasket(){
       </ul>
       <div class="border-b-2 border-gray-600"></div>
       <div class="space-y-2">
-        <div class="text-center text-xl">{{totalPrice}} TL</div>
-        <button @click="buyBasket" class="bg-slate-500 w-full roub text-xl text-white rounded-lg">
+        <div class="text-center text-xl" id="totalPrice">{{totalPrice}} TL</div>
+        <button @click="buyBasket" id="buyBasketBtn" class="bg-slate-500 w-full roub text-xl text-white rounded-lg">
           Buy
         </button>
       </div>
