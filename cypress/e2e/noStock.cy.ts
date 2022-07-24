@@ -6,7 +6,7 @@ describe("No Stock Buy Test", () => {
   });
   it("try add to basket no stock item", () => {
     cy.get(".deviceCards[data-stock=0]")
-      .find("#plusAmount")
+      .find(".plusAmount")
       .click({ multiple: true });
 
     cy.get(".deviceCards[data-stock=0]")
